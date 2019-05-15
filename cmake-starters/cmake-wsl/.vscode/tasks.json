@@ -1,0 +1,30 @@
+{
+    // https://go.microsoft.com/fwlink/?LinkId=733558
+    "version": "2.0.0",
+    "tasks": [
+        
+        {
+            "label": "Generate project",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}",
+            },
+            "command": "cmake -B ./build  .",
+            //"command": "cmake .. -G 'Ninja'",     // for ninja builds
+            "group":  "build",
+        },
+        {
+            "label": "Build project",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}\\build"
+            },
+            "command": "cmake --build . --target INSTALL",
+            "group":  {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": ["Generate project"]
+        },
+    ]
+}
