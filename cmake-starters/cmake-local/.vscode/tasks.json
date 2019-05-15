@@ -18,6 +18,7 @@
                 "cwd": "${workspaceFolder}\\build"
             },
             "command": "cmake ..",
+            //"command": "cmake .. -G 'Ninja'",     // for ninja builds
             "group":  "build",
             "dependsOn": ["Create build folder"]
         },
