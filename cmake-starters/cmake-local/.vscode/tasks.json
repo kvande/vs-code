@@ -2,25 +2,16 @@
     // https://go.microsoft.com/fwlink/?LinkId=733558
     "version": "2.0.0",
     "tasks": [
-        {
-            "label": "Create build folder",
-            "type": "shell",
-            "command": "./scripts/vs_code/add_folder.sh",           // linux version
-            "windows": {
-                "command": ".\\scripts\\vs_code\\add_folder.cmd"    // windows version
-            },
-            "group": "build",
-        },
+        
         {
             "label": "Generate project",
             "type": "shell",
             "options": {
-                "cwd": "${workspaceFolder}\\build"
+                "cwd": "${workspaceFolder}"
             },
-            "command": "cmake ..",
+            "command": "cmake -B ./build  .",
             //"command": "cmake .. -G 'Ninja'",     // for ninja builds
             "group":  "build",
-            "dependsOn": ["Create build folder"]
         },
         {
             "label": "Build project",
@@ -28,7 +19,7 @@
             "options": {
                 "cwd": "${workspaceFolder}\\build"
             },
-            "command": "cmake --build .",
+            "command": "cmake --build . --target INSTALL",
             "group":  {
                 "kind": "build",
                 "isDefault": true
