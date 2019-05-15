@@ -1,0 +1,38 @@
+{
+    // https://go.microsoft.com/fwlink/?LinkId=733558
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Create build folder",
+            "type": "shell",
+            "command": "./scripts/vs_code/add_folder.sh",           // linux version
+            "windows": {
+                "command": ".\\scripts\\vs_code\\add_folder.cmd"    // windows version
+            },
+            "group": "build",
+        },
+        {
+            "label": "Generate project",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}\\build"
+            },
+            "command": "cmake ..",
+            "group":  "build",
+            "dependsOn": ["Create build folder"]
+        },
+        {
+            "label": "Build project",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}\\build"
+            },
+            "command": "cmake --build .",
+            "group":  {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": ["Generate project"]
+        },
+    ]
+}
