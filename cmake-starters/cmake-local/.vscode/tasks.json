@@ -17,14 +17,17 @@
             "label": "Build project",
             "type": "shell",
             "options": {
-                "cwd": "${workspaceFolder}\\build"
+                "cwd": "${workspaceFolder}"
             },
-            "command": "cmake --build . --target INSTALL",
+            "command": "cmake  --build ./build --target install",
             "group":  {
                 "kind": "build",
                 "isDefault": true
             },
-            "dependsOn": ["Generate project"]
+            "dependsOn": ["Generate project"],
+            "presentation": {              
+                "clear": true
+            }
         },
     ]
 }
