@@ -9,7 +9,7 @@
             "options": {
                 "cwd": "${workspaceFolder}"
             },
-            "command": "cmake -B ./build  .",
+            "command": "cmake -B ./build  . -DCMAKE_BUILD_TYPE=Debug",
             //"command": "cmake .. -G 'Ninja'",     // for ninja builds
             "group":  "build",
         },
