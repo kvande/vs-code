@@ -9,8 +9,13 @@
             "options": {
                 "cwd": "${workspaceFolder}"
             },
-            "command": "cmake -B ./build  . -DCMAKE_BUILD_TYPE=Debug",
-            //"command": "cmake .. -G 'Ninja'",     // for ninja builds
+            "linux": {
+                "command": "cmake -B ./build  . -DCMAKE_BUILD_TYPE=Debug"
+            },
+            "windows": {
+                "command": "cmake -B ./build  . -A x64",
+                //"command": "cmake .. -G 'Ninja ' -DCMAKE_BUILD_TYPE=Debug",     // for ninja builds
+            },
             "group":  "build",
         },
         {
@@ -19,7 +24,13 @@
             "options": {
                 "cwd": "${workspaceFolder}"
             },
-            "command": "cmake  --build ./build --target install",
+            "linux": {
+                "command": "cmake  --build ./build --target install",
+            },
+            "windows": {
+                "command": "cmake  --build ./build --target install --config Debug",
+            },
+
             "group":  {
                 "kind": "build",
                 "isDefault": true
