@@ -13,8 +13,8 @@
                 "command": "cmake -B ./build  . -DCMAKE_BUILD_TYPE=Debug"
             },
             "windows": {
-                "command": "cmake -B ./build  . -A x64",
-                //"command": "cmake .. -G 'Ninja ' -DCMAKE_BUILD_TYPE=Debug",     // for ninja builds
+                //"command": "cmake -B ./build  . -DCMAKE_BUILD_TYPE=Debug",    // for vs build
+                "command": "cmake -B ./build -G Ninja -DCMAKE_MAKE_PROGRAM=\"C:/Program Files (x86)/Microsoft Visual Studio/2019/Professional/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe\"",     // for ninja builds
             },
             "group":  "build",
         },
