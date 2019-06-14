@@ -5,15 +5,22 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(Windows) Launch",
-            "type": "cppvsdbg",
+            "name": "Launch it :)",
             "request": "launch",
-            "program": "${workspaceFolder}/install/my-main.exe",
+            "type": "cppvsdbg",
+            "windows": {
+                "type": "cppvsdbg",
+                "program": "${workspaceFolder}/install/my-main.exe",
+            },
+            "linux": {
+                "type": "cppdbg",
+                "program": "${workspaceFolder}/install/my-main",
+            },
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
-            "externalConsole": true,
+            "externalConsole": false,
             "preLaunchTask": "Build project"
         }
     ]
